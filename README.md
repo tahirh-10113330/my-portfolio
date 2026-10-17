@@ -13,11 +13,25 @@ npm run dev
 
 Open http://127.0.0.1:3000. On Windows PowerShell, use `npm.cmd` if script execution policy blocks `npm`.
 
-## Production
+## GitHub Pages deployment
+
+The workflow in `.github/workflows/deploy-pages.yml` builds and deploys automatically when `main` is pushed. In GitHub repository Settings → Pages, set the source to **GitHub Actions**. The repository must be eligible for Pages on your GitHub plan.
+
+Production URL: https://tahirh-10113330.github.io/my-portfolio/
+
+To build the Pages version locally in PowerShell:
+
+```powershell
+$env:NEXT_PUBLIC_BASE_PATH = '/my-portfolio'
+npm.cmd run build
+```
+
+The static website is generated in `out/`. The portrait and resume links use the same base path, so they work under the repository URL. Local `npm run dev` continues using `/` when the environment variable is unset. Static exports must be served by a static web server; `next start` is not supported.
+
+## Static production build
 
 ```sh
 npm run build
-npm start
 ```
 
 ## Where to edit

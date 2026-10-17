@@ -14,6 +14,7 @@ import { ExperienceTimeline } from '@/components/experience-timeline';
 import { Projects } from '@/components/projects';
 import { Contact } from '@/components/contact';
 import { skills } from '@/data/portfolio';
+import { assetPath } from '@/lib/asset-path';
 
 export default function Home() {
   return (
@@ -45,7 +46,7 @@ export default function Home() {
               <a className="button primary" href="#work">
                 Explore my work <ArrowDownRight size={17} />
               </a>
-              <a className="button secondary" href="/resume.pdf" download>
+              <a className="button secondary" href={assetPath('/resume.pdf')} download>
                 <Download size={15} /> Résumé
               </a>
             </div>
@@ -59,7 +60,7 @@ export default function Home() {
           <div className="hero-portrait">
             <div className="portrait-frame">
               <Image
-                src="/tahir-latest-cutout.png"
+                src={assetPath('/tahir-latest-cutout.png')}
                 alt="Tahir Hussain"
                 fill
                 priority
